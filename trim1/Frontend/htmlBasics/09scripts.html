@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=""
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>
+            09. scripts
+        </h1>
+        <h2>etiqueta que permite agregar codigo en javascript</h2>
+    </header>
+    <section>
+        <h2>
+            Bienvenid@: <mark id="usuario">Invitado</mark>
+        </h2>
+    </section>
+    <script>
+        //manejo de variables
+        let user = "Juan"; //variable tipo string
+        // cuadro de dialogo para que el usuario ingrese texto
+        user = prompt("Cual es su nombre?");
+        if(user){
+            //obtener el objeto HTML segun el id del elemento
+            let usuario = document.getElementById("usuario");
+            //cambiar elemento del HTML
+            usuario.innerText = user;
+        }
+
+    </script>
+</body>
+</html>

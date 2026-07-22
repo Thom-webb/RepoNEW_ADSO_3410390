@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            color: #333;
+            background-color: #f4f6e1;
+            line-height: 1.5; /*interlineado*/
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            
+        }
+        header{
+            background-color: #66dbbe;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav{
+            background-color: #30b0a6;
+            color: #fff;
+        }
+        nav ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 2rem;
+            
+
+        }
+        nav a{
+            text-decoration: none;
+            color: #fff;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: background 0.4s;
+            border-radius: 2rem;
+        }
+        nav a:hover{
+            background-color: #258880;
+            border-radius: 2rem;
+            
+        }
+        main{
+            max-width: 1200px;
+            margin: 1rem auto;
+            display: flex;
+            padding: 0 1rem;
+            gap: 2rem;
+        }
+        article{
+            background-color: #cecfbe;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            padding: 0.7rem;
+            box-shadow: 0 4px 6px rgb(11, 12, 15);
+        }
+        article h3{
+            color:#258880;
+            font-size: 0.8rem;
+        }
+
+        .fecha{
+            color: #6d6c6c;
+            font-size: 0.8rem;
+        }
+        section{
+            flex: 7; /* abacar el 70% */
+            min-height: 350px;
+        }
+        aside{
+            flex: 3; /* abarca el 30% */
+            color:#000000;
+            font-size: 0.8rem;
+            box-shadow: #333;
+            background-color: #b6d2d0;
+            border-radius: 2rem;
+            padding: 2rem;
+            height: fit-content;
+        }
+        footer{
+            background-color: #258880;
+            color: #ffffff;
+            padding: 1rem;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Mi blog de aprendizajes ADSO
+        </h1>
+        <p>
+            espacio para generacion de contenido relacionado a temas del TGO ADSO
+        </p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">INICIO</a></li>
+            <li><a href="#">ARTICULOS</a></li>
+            <li><a href="#">CONTACTO</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>
+                Ultimas publicaciones
+            </h2>
+            <article>
+                <h3>
+                    Como deja de procrastinar
+                </h3>
+                <p>
+                    Fecha 3 junio 2026
+                </p>
+                <p>
+                    Tecnica para aprovechar cada segundo de tu tiempo durante cada una de las formaciones. No seas
+                </p>
+            </article>
+            <article>
+                <h3>
+                    La semantica en la web
+                </h3>
+                <p class="fecha"></p>
+                <p>
+                    uso de las etiquetas HTML 5 que permiten mejorar el SEO (seach engine optimization) de los sitios web y la accesibilidad a personas con discapacidad
+                 </p>
+            </article>
+        </section>
+        <aside>
+            <h2>
+                ACERCA DE MI
+            </h2>
+            <h5>
+                (persona bastante callado con un talento en el marketing y en 3D)
+            </h5>
+        </aside>
+        
+    </main>
+    <footer>
+        <p>
+            &copy; 2026 - blog con fines educativos ADSO
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Vida - Thomas Toro Cuervo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #370d68;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        
+        .header {
+            background-color: #31287f;
+            color: rgb(255, 255, 255);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        
+        .content {
+            padding: 30px;
+        }
+
+       
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            color: #070a11;
+            border-bottom: 5px solid #26062c;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 22px;
+            display: flex;
+            flex-direction: center;
+        }
+
+        /* Información de contacto */
+        .contact-info {
+            background-color: #8d82b2;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 10rem;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Listas */
+        ul {
+            list-style-position: inside;
+            margin-left: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+       
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: #1e3c72;
+        }
+
+        .item-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .item-list {
+            margin-top: 8px;
+            margin-left: 20px;
+        }
+
+        /* Cualidades en badges */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .badge {
+            background-color: #1e3c72;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Encabezado con nombre y título -->
+    <div class="header">
+        <h1>Thomas Toro Cuervo</h1>
+        <p>Diseñador Gráfico Digital | Modelado 3D</p>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        
+        <!-- Sección de contacto -->
+        <div class="contact-info">
+            <p> 3024364105</p>
+            <p> ttorocuervo@gmail.com</p>
+            <p> Manizales - Caldas - Colombia</p>
+            <p> 1054858848</p>
+        </div>
+
+        <!-- Sobre mí -->
+        <div class="section">
+            <h2>Sobre mí</h2>
+            <p>Soy una persona creativa con habilidades sólidas en diseño gráfico, marketing y publicidad, así como en dibujo y realización de planos a mano alzada. Cuento con un buen manejo de herramientas como Photoshop y SolidWorks para modelado 3D. Destaco por mi capacidad para trabajar en equipo y mantener una comunicación asertiva.</p>
+        </div>
+
+        <!-- Educación -->
+        <div class="section">
+            <h2>Educación</h2>
+            
+            <div class="item">
+                <div class="item-title"><mark>Técnico Modelado Digital de productos industriales</mark></div>
+                <div class="item-subtitle">SENA</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><mark>Técnico laboral por Competencias Diseño Gráfico Digital</mark></div>
+                <div class="item-subtitle">UNITECNICA</div>
+            </div>
+        </div>
+
+        <!-- Experiencia Laboral -->
+        <div class="section">
+            <h2>Experiencia Laboral</h2>
+            
+            <div class="item">
+                <div class="item-title">Desarrollo de proyectos en 3D - Prácticas SENA</div>
+                <ul class="item-list">
+                    <li>Modelado 3D de interiores de instalaciones</li>
+                    <li>Diseño de repuestos de maquinaria</li>
+                    <li>Diseños de publicidad para empresas</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-title">Diseño Gráfico y Publicidad</div>
+                <ul class="item-list">
+                    <li>Creación de piezas gráficas para marketing</li>
+                    <li>Branding e identidad visual</li>
+                    <li>Planos a mano alzada para proyectos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Proyectos destacados -->
+        <div class="section">
+            <h2>Proyectos Destacados</h2>
+            <ul>
+                <li><strong>Modelado 3D:</strong> Interiores de instalaciones y repuestos industriales</li>
+                <li><strong>Diseño publicitario:</strong> Campañas visuales para empresas locales</li>
+                <li><strong>Planos técnicos:</strong> Elaboración de planos a mano alzada</li>
+            </ul>
+      
+    
+    <!-- Cualidades / Habilidades -->
+    <div class="section">
+        <h2>Cualidades y certificados</h2>
+        <div class="badges">
+            <span class="badge"> Trabajo en equipo</span>
+            <span class="badge"> Buena Comunicación</span>
+            <span class="badge"> Creatividad</span>
+            <span class="badge"> Photoshop</span>
+            <span class="badge"> SolidWorks</span>
+            <span class="badge"> Dibujo de planos</span>
+            <span class="badge"> Certificado en ingles</span>
+            <span class="badge"> Certificado en cortadora laser</span>
+            <span class="badge"> Certificado en comunicacion en el Trabajo</span>
+            <span class="badge"> Certificado en Trabajo en equipo</span>
+            <span class="badge"> Certificado en los reales</span>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

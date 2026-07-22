@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller 1 + Herramienta interactiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        
+
+        body{
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #2b1d52;
+            background-image: url("IMG/castillo.png");
+            background-repeat: repeat-x;
+            background-position: center bottom;
+            background-size: cover;
+            image-rendering: pixelated;
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+
+        section{
+            background-color: rgba(30, 95, 3, 0.5);
+            color: white;
+            padding: 2rem;
+            margin: auto;
+            border-radius: 20px;
+            width: 70%;
+        }   
+
+        mark {
+            background-color: rgba(69, 25, 0, 0.4);
+            color:rgb(192, 192, 192);
+            border-radius: 5px;
+            font-family: "Press Start 2P", system-ui;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 10);
+            font-family: "Press Start 2P", system-ui;
+            text-align: center;
+            text-shadow: 0px 0px 7px rgb(242, 255, 0);
+            color: #ffff00; 
+        }
+
+        :link{
+            color: rgb(92, 50, 83);
+        }
+        :visited{
+            color: rgb(87, 44, 86);
+        }
+        h1{
+            text-align: center;
+            font-family: "Press Start 2P", system-ui;
+        }
+
+        .texto-sombra {
+            font-size: 4rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 10);
+            font-family: "Press Start 2P", system-ui;
+            text-align: center;
+            text-shadow: 0px 0px 7px rgb(255, 255, 255);
+            color: #ffffff; 
+        }
+
+        .texto-sombra2 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: "Press Start 2P", system-ui;
+            text-align: center;
+        }
+
+        header p{
+            font-family: "Press Start 2P", system-ui;
+            font-size: 1.5rem;
+            text-align: center;
+            color: #ffffff; 
+            text-shadow: 1px 5px 1px rgba(0, 0, 0, 0.5);
+        }
+        h2{
+            font-family: "Press Start 2P", system-ui;
+            text-align: center;
+            text-shadow: 0px 0px 7px rgb(242, 255, 0);
+            color: #ffff00; 
+        }
+
+        .tierra{
+            margin-top: 3rem;
+            background-color: rgba(70, 36, 0, 0.5);
+        }
+
+        #caja1{
+            background-color: #222;
+            color: white;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            text-align: center;
+            font-family: "Press Start 2P", system-ui;
+            font-size: 0.9rem;
+        }
+
+        .artes{
+            background-color: rgba(255, 191, 0, 0.4);
+            border: 1px solid rgb(158, 158, 0);
+        }
+
+        .lenguajes{
+            background-color: rgba(30, 95, 3, 0.5);
+            color: white;
+            padding: 2rem;
+            margin: auto;
+            border-radius: 20px;
+            width: 70%;
+        }
+        .lenguajes ul{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            font-family: "Press Start 2P", system-ui;
+        }
+
+        .contenedor img{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            margin-left: 20%;
+        }
+
+        .tarjeta{
+            padding: 20px;
+            margin: 15px;
+            font-family: "Press Start 2P", system-ui;
+            text-align: center;
+            text-shadow: 0px 0px 7px rgb(242, 255, 0);
+            color: #ffff00; 
+        }
+
+        /* ============================================ */
+        /* ESTILOS NUEVOS PARA LA HERRAMIENTA           */
+        /* (no modifican nada de tus estilos originales) */
+        /* ============================================ */
+
+        .herramienta-interactiva {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            margin: 3rem auto;
+            max-width: 800px;
+            border: 2px solid #ffd966;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            font-family: "Press Start 2P", system-ui;
+            color: #f0f0f0;
+            /* IMPORTANTE: para que el fondo del castillo se vea debajo */
+            position: relative;
+            z-index: 1;
+        }
+
+        .herramienta-interactiva h2 {
+            color: #ffe484;
+            text-shadow: 0 0 15px #ffaa00;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .control-panel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 3rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.5rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 2rem;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 150px;
+        }
+
+        .control-group label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #ccc;
+        }
+
+        .control-group select, 
+        .control-group input {
+            background: #1e1e2f;
+            border: 2px solid #b8943c;
+            color: white;
+            padding: 0.7rem 1rem;
+            border-radius: 40px;
+            font-family: "Press Start 2P", system-ui;
+            font-size: 0.7rem;
+            text-align: center;
+            width: 100%;
+            max-width: 200px;
+            cursor: pointer;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .control-group select:hover, 
+        .control-group input:hover {
+            border-color: #f5c542;
+            box-shadow: 0 0 15px #f5c54288;
+        }
+
+        .vista-previa {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50px;
+            padding: 2rem 1rem;
+            border: 1px dashed #b8943c;
+            min-height: 220px;
+        }
+
+        .caja-demo {
+            background: #3a2a6b;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            text-shadow: 0 0 10px currentColor;
+            box-shadow: 0 0 25px rgba(0,0,0,0.7);
+            transition: all 0.15s ease;
+            padding: 0.5rem;
+            min-width: 100px;
+            min-height: 100px;
+            text-align: center;
+            border: 2px solid #ffd966;
+        }
+
+        .caja-demo span {
+            font-size: 0.6rem;
+            background: rgba(0,0,0,0.5);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            margin-top: 0.3rem;
+            font-family: "Press Start 2P", system-ui;
+        }
+
+        .medidas-info {
+            background: #1e1e2fcc;
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            border: 1px solid #b8943c;
+            backdrop-filter: blur(2px);
+            display: inline-block;
+        }
+
+        .medidas-info strong {
+            color: #ffe484;
+        }
+
+        .demo-colores {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .color-sample {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #fff4;
+            transition: 0.2s;
+        }
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        /* Responsive para la herramienta */
+        @media (max-width: 700px) {
+            .herramienta-interactiva { 
+                padding: 1.2rem; 
+            }
+            .vista-previa { 
+                flex-direction: column; 
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1 class="texto-sombra">DIBUJAR DIGITALMENTE</h1>
+        <p>Porque me gusta tanto el dibujo digital?</p>
+    </header>
+
+    <section>
+        <p class="texto-sombra2">
+            Cuando hablo del dibujo digital no me refiero precisamente a un solo estilo de dibujo. Existen muchísimos estilos, algunos más conocidos y populares que otros, además de estilos propios o menos reconocidos que solo comprende una pequeña comunidad de personas.
+        </p>
+    </section>
+     
+    <section class="tierra">
+        <h2>
+            <mark>EL UNICO LIMITANTE ES TU IMAGINACION</mark>
+        </h2>
+        <section id="caja1">
+            <div>
+                <mark class="artes"> arte principal está inspirado en The Legend of Zelda</mark>, caracterizado por paisajes fantásticos, colores mágicos y un estilo medieval lleno de aventura y naturaleza.
+            </div>
+            <div>
+                <mark class="artes">Mi arte secundario está inspirado en Studio Ghibli</mark>, destacando ambientes tranquilos, naturaleza, colores suaves y una estética cálida y soñadora.
+            </div>
+        </section> 
+        <p style='font-family: "Press Start 2P", system-ui; text-align: center; font-size: 12px; line-height: 1.8;'>
+             El <strong>Servicio Nacional de Aprendizaje (SENA)</strong> es una institución pública colombiana que ofrece formación gratuita para el desarrollo técnico y tecnológico del país. Actualmente, me encuentro adquiriendo habilidades clave en desarrollo de software a través del programa de formación <em>Análisis y Desarrollo de Software (ADSO)</em>, el cual me prepara para enfrentar los retos de la industria digital.
+        </p>
+    </section>
+
+    <section class="lenguajes">
+        <h2>MIS LENGUAJES FAVORITOS</h2>
+        <div class="LenguajesFAV">
+            <ul>
+                <li>Dart</li>
+                <li>HTML</li>
+                <li>PSEint</li>
+                <li>Python</li>
+            </ul>
+        </div> 
+        <div class="contenedor">
+            <a href="https://www.google.com" target="_blank">
+                <img src="IMG/YOSHI.png" alt="GOOGLE">
+            </a>
+            <a href="https://i.pinimg.com/736x/73/7d/e6/737de63b49d82e02bb59a5b7d82499b6.jpg" target="_blank">
+                <img src="IMG/CORAZON.png" alt="corazon">
+            </a>
+        </div>
+        <div class="tarjeta">
+            Contenido de la tarjeta
+        </div>
+    </section>
+
+    <!-- ========== HERRAMIENTA INTERACTIVA (no modifica tus estilos) ========== -->
+    <div class="herramienta-interactiva">
+        <h2>🎨 EXPERIMENTO VISUAL</h2>
+        <p style="font-size:0.6rem; text-align:center; color:#bbb; margin-bottom:1.5rem;">
+            Cambia unidad, formato y colores — todo en tiempo real
+        </p>
+
+        <div class="control-panel">
+            <div class="control-group">
+                <label for="unidad">📏 UNIDAD</label>
+                <select id="unidad">
+                    <option value="px">px (píxeles)</option>
+                    <option value="rem">rem</option>
+                    <option value="em">em</option>
+                    <option value="%">% (porcentaje)</option>
+                    <option value="vw">vw (viewport width)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="formato">📐 FORMATO</label>
+                <select id="formato">
+                    <option value="cuadrado">Cuadrado</option>
+                    <option value="rectangulo">Rectángulo</option>
+                    <option value="circulo">Círculo</option>
+                    <option value="rombo">Rombo</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="colorBase">🎨 COLOR BASE</label>
+                <input type="color" id="colorBase" value="#d4a373">
+            </div>
+            <div class="control-group">
+                <label for="colorAcento">✨ ACENTO</label>
+                <input type="color" id="colorAcento" value="#f4a261">
+            </div>
+        </div>
+
+        <div class="vista-previa" id="vistaPrevia">
+            <div class="caja-demo" id="cajaDemo" style="background:#d4a373; width:150px; height:150px;">
+                <span id="medidaTexto">150 x 150</span>
+            </div>
+            <div class="flex-col">
+                <div class="medidas-info" id="infoDimension">
+                    <strong>DIMENSIÓN:</strong> <span id="dimensionDisplay">150px × 150px</span>
+                </div>
+                <div class="demo-colores">
+                    <div class="color-sample" id="muestraBase" style="background:#d4a373;"></div>
+                    <div class="color-sample" id="muestraAcento" style="background:#f4a261;"></div>
+                    <span style="font-size:0.5rem; color:#ccc;">base / acento</span>
+                </div>
+            </div>
+        </div>
+        <p style="font-size:0.5rem; text-align:center; color:#888; margin-top:1rem;">
+            ⚡ los cambios se reflejan instantáneamente
+        </p>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            // elementos
+            const unidadSelect = document.getElementById('unidad');
+            const formatoSelect = document.getElementById('formato');
+            const colorBaseInput = document.getElementById('colorBase');
+            const colorAcentoInput = document.getElementById('colorAcento');
+            const cajaDemo = document.getElementById('cajaDemo');
+            const medidaTexto = document.getElementById('medidaTexto');
+            const dimensionDisplay = document.getElementById('dimensionDisplay');
+            const muestraBase = document.getElementById('muestraBase');
+            const muestraAcento = document.getElementById('muestraAcento');
+
+            // valores base (en px)
+            let baseSize = 150;       // ancho/alto base en px
+
+            // función que aplica TODOS los cambios
+            function actualizarVista() {
+                const unidad = unidadSelect.value;
+                const formato = formatoSelect.value;
+                const colorBase = colorBaseInput.value;
+                const colorAcento = colorAcentoInput.value;
+
+                // --- 1. definir ancho y alto (en la unidad elegida) ---
+                let ancho = baseSize;
+                let alto = baseSize;
+
+                // ajustar según formato (relación)
+                switch(formato) {
+                    case 'cuadrado':   ancho = baseSize; alto = baseSize; break;
+                    case 'rectangulo': ancho = baseSize * 1.6; alto = baseSize; break;
+                    case 'circulo':    ancho = baseSize; alto = baseSize; break;
+                    case 'rombo':      ancho = baseSize; alto = baseSize; break;
+                    default: ancho = baseSize; alto = baseSize;
+                }
+
+                // convertir a la unidad seleccionada
+                let anchoStr, altoStr;
+                if (unidad === 'px') {
+                    anchoStr = Math.round(ancho) + 'px';
+                    altoStr = Math.round(alto) + 'px';
+                } else if (unidad === 'rem') {
+                    anchoStr = (ancho / 16).toFixed(2) + 'rem';
+                    altoStr = (alto / 16).toFixed(2) + 'rem';
+                } else if (unidad === 'em') {
+                    anchoStr = (ancho / 16).toFixed(2) + 'em';
+                    altoStr = (alto / 16).toFixed(2) + 'em';
+                } else if (unidad === '%') {
+                    let baseRef = 200;
+                    anchoStr = Math.round((ancho / baseRef) * 100) + '%';
+                    altoStr = Math.round((alto / baseRef) * 100) + '%';
+                } else if (unidad === 'vw') {
+                    let vwRef = 1000;
+                    anchoStr = (ancho / vwRef * 100).toFixed(2) + 'vw';
+                    altoStr = (alto / vwRef * 100).toFixed(2) + 'vw';
+                } else {
+                    anchoStr = Math.round(ancho) + 'px';
+                    altoStr = Math.round(alto) + 'px';
+                }
+
+                // --- 2. aplicar estilos a la caja demo ---
+                cajaDemo.style.width = anchoStr;
+                cajaDemo.style.height = altoStr;
+                cajaDemo.style.backgroundColor = colorBase;
+                cajaDemo.style.borderColor = colorAcento;
+                cajaDemo.style.borderWidth = '4px';
+                cajaDemo.style.borderStyle = 'solid';
+                cajaDemo.style.color = '#fff';
+                cajaDemo.style.boxShadow = `0 0 30px ${colorAcento}88, inset 0 0 15px ${colorAcento}55`;
+
+                // --- 3. formato específico (border-radius, transform) ---
+                switch(formato) {
+                    case 'cuadrado':
+                        cajaDemo.style.borderRadius = '10px';
+                        cajaDemo.style.transform = 'rotate(0deg)';
+                        break;
+                    case 'rectangulo':
+                        cajaDemo.style.borderRadius = '12px';
+                        cajaDemo.style.transform = 'rotate(0deg)';
+                        break;
+                    case 'circulo':
+                        cajaDemo.style.borderRadius = '50%';
+                        cajaDemo.style.transform = 'rotate(0deg)';
+                        break;
+                    case 'rombo':
+                        cajaDemo.style.borderRadius = '6px';
+                        cajaDemo.style.transform = 'rotate(45deg)';
+                        break;
+                    default:
+                        cajaDemo.style.borderRadius = '10px';
+                        cajaDemo.style.transform = 'rotate(0deg)';
+                }
+
+                // --- 4. actualizar texto de medidas ---
+                let displayAncho = anchoStr;
+                let displayAlto = altoStr;
+                if (unidad === '%' || unidad === 'vw') {
+                    displayAncho = anchoStr + ' (' + Math.round(ancho) + 'px)';
+                    displayAlto = altoStr + ' (' + Math.round(alto) + 'px)';
+                }
+                medidaTexto.textContent = Math.round(ancho) + ' × ' + Math.round(alto);
+                dimensionDisplay.textContent = displayAncho + ' × ' + displayAlto;
+
+                // --- 5. actualizar muestras de color ---
+                muestraBase.style.backgroundColor = colorBase;
+                muestraAcento.style.backgroundColor = colorAcento;
+
+                // --- 6. fondo con degradado ---
+                cajaDemo.style.backgroundImage = `radial-gradient(circle at 20% 30%, ${colorAcento}55, ${colorBase} 80%)`;
+            }
+
+            // escuchar cambios en todos los controles
+            unidadSelect.addEventListener('change', actualizarVista);
+            formatoSelect.addEventListener('change', actualizarVista);
+            colorBaseInput.addEventListener('input', actualizarVista);
+            colorAcentoInput.addEventListener('input', actualizarVista);
+
+            // al cargar la página
+            window.addEventListener('load', function() {
+                actualizarVista();
+            });
+        })();
+    </script>
+
+</body>
+</html>
