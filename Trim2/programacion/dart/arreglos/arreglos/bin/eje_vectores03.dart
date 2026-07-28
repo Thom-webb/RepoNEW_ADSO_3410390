@@ -23,8 +23,10 @@ void main(List<String> args) {
       // validacion par
       contPares++;
       productoPares = productoPares * numeros[i]; //productos pares
-    }else{ //numeros impares}
+    } else {
+      //numeros impares}
       contImpares++; //Contador Impares
-      sumaImpares = sumaImpares + numeros[i]; 
+      sumaImpares = sumaImpares + numeros[i];
+    }
   }
 }
