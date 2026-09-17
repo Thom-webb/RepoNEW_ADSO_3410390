@@ -108,6 +108,7 @@ void main(List<String> args) {
     print("Color: ${arrayVehiculos[i].getcolor()}");
     print("velocidad: ${arrayVehiculos[i].getvelocidad()}");
     print("tamaño: ${arrayVehiculos[i].gettamanio()}");
+    arrayVehiculos[i].mostrarDatos();
     arrayVehiculos[i].avanzar();
     print("_" * 70);
   }
